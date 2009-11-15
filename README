@@ -1,0 +1,23 @@
+The jQuery Fx Queues plugin is a global queueing system that
+allows to enqueue effects of different elements, but also keeps jQuery’s default
+queueing option.
+
+See http://www.decodeuri.com/jquery-fxqueues-plugin-20/ for more details.
+
+A wait argument was also added to be able to
+specify the time to wait before starting the animation.
+New arguments added to animate:
+
+    * queue: (string) Name of the queue. If it doesn’t exist, it creates the new queue.
+    * scope: (string) Name of the scope.
+    * position: (”front”|”end”) Queue position where animation (or scope, if passed) is queued.
+    * preDelay: (int) Milliseconds to wait before starting the next in queue.
+    * postDelay: (int) Milliseconds to wait after finishing the animation.
+
+Working with the queues
+
+Now you have a $.fxqueues(”queueName”) to get the queue. The object has three useful methods:
+
+    * $.fxqueues(”queueName”).pause()
+    * $.fxqueues(”queueName”).start()
+    * $.fxqueues(”queueName”).stop() (The queue is cleared.)
