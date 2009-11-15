@@ -209,4 +209,7 @@ test("dequeueing for selection of multiple elements", function() {
   equals( jQuery.fxqueue("06").length, 3, "Items left in the queue" );
 });
 
+test("it should have a version", function() {
+  equals( jQuery.fxqueue.version, "2.0.3" );
+})
 //Todo: Test pre and post delays.
