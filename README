@@ -3,8 +3,8 @@ allows to enqueue effects of different elements, but also keeps jQuery’s defau
 queueing option.
 
 For more details see
-* http://www.decodeuri.com/jquery-fxqueues-plugin-20/
-* http://plugins.jquery.com/project/fxqueues
+    * http://www.decodeuri.com/jquery-fxqueues-plugin-20/
+    * http://plugins.jquery.com/project/fxqueues
 
 A wait argument was also added to be able to
 specify the time to wait before starting the animation.
