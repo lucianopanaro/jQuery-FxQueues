@@ -3,7 +3,7 @@ allows to enqueue effects of different elements, but also keeps jQuery’s defau
 queueing option.
 
 For more details see
-    * http://www.decodeuri.com/jquery-fxqueues-plugin-20/
+    * http://www.decodeuri.com/jquery-fxqueues-plugin-2-1/
     * http://plugins.jquery.com/project/fxqueues
 
 A wait argument was also added to be able to
