@@ -1,77 +1,60 @@
 module("fxqueues");
 
 test("animate(Hash, Object, Function)", function() {
-	expect(1);
-	stop();
-	var hash = {opacity: 'show'};
-	var hashCopy = $.extend({}, hash);
-	$('#foo').animate(hash, 0, function() {
-		ok( hash.opacity == hashCopy.opacity, 'Check if animate changed the hash parameter' );
-		start();
-	});
+  expect(1);
+  stop();
+  var hash = {opacity: 'show'};
+  var hashCopy = $.extend({}, hash);
+  $('#foo').animate(hash, 0, function() {
+    ok( hash.opacity == hashCopy.opacity, 'Check if animate changed the hash parameter' );
+    start();
+  });
 });
 
 test("animate option (queue === false)", function () {
-	expect(1);
-	stop();
+  expect(1);
+  stop();
 
-	var order = [];
+  var order = [];
 
-	var $foo = $("#foo");
-	$foo.animate({width:'100px'}, 200, function () {
-		// should finish after unqueued animation so second
-		order.push(2);
-	});
-	$foo.animate({fontSize:'2em'}, {queue:false, duration:10, complete:function () {
-		// short duration and out of queue so should finish first
-		order.push(1);
-	}});
-	$foo.animate({height:'100px'}, 10, function() {
-		// queued behind the first animation so should finish third 
-		order.push(3);
-		isSet( order, [ 1, 2, 3], "Animations finished in the correct order" );
-		start();
-	});
-});
-
-test("queue() defaults to 'fx' type", function () {
-	expect(2);
-	stop();
-
-	var $foo = $("#foo");
-	$foo.queue("fx", [ "sample", "array" ]);
-	var arr = $foo.queue();
-	isSet(arr, [ "sample", "array" ], "queue() got an array set with type 'fx'");
-	$foo.queue([ "another", "one" ]);
-	var arr = $foo.queue("fx");
-	isSet(arr, [ "another", "one" ], "queue('fx') got an array set with no type");
-	// clean up after test
-	$foo.queue([]);
-
-	start();
+  var $foo = $("#foo");
+  $foo.animate({width:'100px'}, 200, function () {
+    // should finish after unqueued animation so second
+    order.push(2);
+  });
+  $foo.animate({fontSize:'2em'}, {queue:false, duration:10, complete:function () {
+    // short duration and out of queue so should finish first
+    order.push(1);
+  }});
+  $foo.animate({height:'100px'}, 10, function() {
+    // queued behind the first animation so should finish third
+    order.push(3);
+    isSet( order, [ 1, 2, 3], "Animations finished in the correct order" );
+    start();
+  });
 });
 
 test("stop()", function() {
-	expect(3);
-	stop();
+  expect(3);
+  stop();
 
-	var $foo = $("#nothiddendiv");
-	var w = 0;
-	$foo.hide().width(200).width();
+  var $foo = $("#nothiddendiv");
+  var w = 0;
+  $foo.hide().width(200).width();
 
-	$foo.animate({ width:'show' }, 1000);
-	setTimeout(function(){
-		var nw = $foo.width();
-		ok( nw != w, "An animation occurred " + nw + "px " + w + "px");
-		$foo.stop();
+  $foo.animate({ width:'show' }, 1000);
+  setTimeout(function(){
+    var nw = $foo.width();
+    ok( nw != w, "An animation occurred " + nw + "px " + w + "px");
+    $foo.stop();
 
-		nw = $foo.width();
-		ok( nw != w, "Stop didn't reset the animation " + nw + "px " + w + "px");
-		setTimeout(function(){
-			equals( nw, $foo.width(), "The animation didn't continue" );
-			start();
-		}, 100);
-	}, 100);
+    nw = $foo.width();
+    ok( nw != w, "Stop didn't reset the animation " + nw + "px " + w + "px");
+    setTimeout(function(){
+      equals( nw, $foo.width(), "The animation didn't continue" );
+      start();
+    }, 100);
+  }, 100);
 });
 
 
@@ -100,7 +83,7 @@ test("queue.start()", function() {
   stop();
 
   var played_items = 0;
-  
+
   var original_width = $("#1").width();
 
   $("#1").animate({width: '25px'}, { duration: 50, queue: "03", complete: function() {
@@ -210,6 +193,6 @@ test("dequeueing for selection of multiple elements", function() {
 });
 
 test("it should have a version", function() {
-  equals( jQuery.fxqueue.version, "2.0.3" );
+  equals( jQuery.fxqueue.version, "2.1" );
 })
 //Todo: Test pre and post delays.
