@@ -1,6 +1,6 @@
 /*
  * jQuery FxQueues 2.1
- * Copyright 2009 Luciano German Panaro <contact@decodeuri.com>
+ * Copyright 2009, 2010 Luciano German Panaro <contact@decodeuri.com>
  * Released under the MIT and GPL licenses.
  */
 
